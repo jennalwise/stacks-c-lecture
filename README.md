@@ -47,7 +47,7 @@ Then, share your results with 1-2 neighbors. After, we will go over the answers 
 
 ### Paired Programming
 The rest of the exercises you will be working on will involve paired programming with a partner of your choice.
-For a reminder on how paired programming works see Dr. Barbara Johnson's web page on the topic: [Review on Paired Programming](). 
+For a reminder on how paired programming works see Dr. Barbara Johnson's web page on the topic: [Review on Paired Programming](https://johnsonba.cs.grinnell.edu/CSC161/2022F/getting-started/readings/pair-programming.html). 
 
 ***
 
