@@ -101,6 +101,23 @@ Write a program to sort a stack in ascending order (with biggest items on top) u
 
 You can implement this program in `test.c` as a function called `stackSort`. Then, create a test case/function that creates a stack, prints the contents, calls `stackSort` to sort the stack, and prints the contents after sorting. Make sure the console output is functionally correct, aka. the stack is sorted properly.
 
+*Hint, check out the pseudo code to sort a stack with two other stacks below*
+```c
+// Stacks: src, tmp, dest
+// Trying to sort: src
+
+// Sorts items from src into dest where they are biggest items on bottom and smallest on top (descending order)
+while (src is not empty) {
+    while (dest is not empty && src's top is greater than dest's top) {
+        move dest's top onto tmp 
+    }
+    move src's top onto dest
+    move all the items from tmp back onto dest
+}
+
+move all items from dest back onto src // to sort in ascending order
+```
+
 **OFFLINE CHALLENGE**: Try to do this with only one additional stack, for a total of two stacks.
 
 **Note**: This exercise is inspired by a similar exercise in *Cracking the Coding Interview: 150 Programming Questions and Solutions, by Gayle Laakmann McDowell*.
