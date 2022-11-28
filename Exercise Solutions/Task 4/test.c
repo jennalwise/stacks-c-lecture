@@ -24,6 +24,9 @@ void test_isEmpty_nonempty_stack() {
     assert(isEmpty(s));
     push(s,3);
     assert(!isEmpty(s));
+
+    pop(s);
+    free(s);
 }
 
 void test_initialize_null_stack() {
@@ -37,6 +40,8 @@ void test_initialize_malloc_stack() {
     bool success = initialize(s);
     assert(success);
     assert(isEmpty(s));
+
+    free(s);
 }
 
 void test_initialize_nonempty_stack() {
@@ -46,6 +51,9 @@ void test_initialize_nonempty_stack() {
     push(s,3);
     success = initialize(s);
     assert(!success);
+
+    pop(s);
+    free(s);
 }
 
 void test_isFull_null_stack() {
@@ -56,6 +64,8 @@ void test_isFull_null_stack() {
 void test_isFull_malloc_stack() {
     Stack* s = malloc(sizeof(struct Stack));
     assert(!isFull(s));
+
+    free(s);
 }
 
 void test_isFull_nonempty_stack() {
@@ -64,6 +74,9 @@ void test_isFull_nonempty_stack() {
     assert(success);
     push(s,3);
     assert(!isFull(s));
+
+    pop(s);
+    free(s);
 }
 
 void test_push_null_stack() {
@@ -76,6 +89,9 @@ void test_push_malloc_stack() {
     initialize(s);
     assert(push(s,3));
     assert(top(s) == 3);
+
+    pop(s);
+    free(s);
 }
 
 void test_push_nonempty_stack() {
@@ -85,6 +101,10 @@ void test_push_nonempty_stack() {
     assert(top(s) == 3);
     assert(push(s,10));
     assert(top(s) == 10);
+
+    pop(s);
+    pop(s);
+    free(s);
 }
 
 void test_pop_null_stack() {
@@ -96,6 +116,8 @@ void test_pop_malloc_stack() {
     Stack* s = malloc(sizeof(struct Stack));
     initialize(s);
     assert(pop(s) == INT_MIN);
+
+    free(s);
 }
 
 void test_pop_nonempty_stack() {
@@ -110,6 +132,9 @@ void test_pop_nonempty_stack() {
     assert(top(s) == 10);
     assert(pop(s) == 10);
     assert(top(s) == 3);
+
+    pop(s);
+    free(s);
 }
 
 void test_top_null_stack() {
@@ -121,6 +146,8 @@ void test_top_malloc_stack() {
     Stack* s = malloc(sizeof(struct Stack));
     initialize(s);
     assert(top(s) == INT_MIN);
+
+    free(s);
 }
 
 void test_print_null_stack() {
@@ -132,6 +159,8 @@ void test_print_empty_stack() {
     Stack* s = malloc(sizeof(struct Stack));
     initialize(s);
     print(s);
+
+    free(s);
 }
 
 void test_print_nonempty_stack() {
@@ -145,6 +174,9 @@ void test_print_nonempty_stack() {
     print(s);
     assert(pop(s) == 5);
     print(s);
+
+    pop(s);
+    free(s);
 }
 
 void test_size_null_stack() {
@@ -156,6 +188,8 @@ void test_size_empty_stack() {
     Stack* s = malloc(sizeof(struct Stack));
     initialize(s);
     assert(size(s) == 0);
+
+    free(s);
 }
 
 void test_size_nonempty_stack() {
@@ -172,6 +206,9 @@ void test_size_nonempty_stack() {
     assert(size(s) == 2);
     assert(pop(s) == 10);
     assert(size(s) == 1);
+
+    pop(s);
+    free(s);
 }
 
 void stackSort(Stack* src) {
