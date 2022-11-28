@@ -47,7 +47,7 @@ Then, share your results with 1-2 neighbors. After, we will go over the answers 
 
 ### Paired Programming
 The rest of the exercises you will be working on will involve paired programming with a partner of your choice.
-As a reminder here is how paired programming works: TBD
+For a reminder on how paired programming works see Dr. Barbara Johnson's web page on the topic: [Review on Paired Programming](). 
 
 ***
 
@@ -72,7 +72,7 @@ Part B
 2. Add a function that returns the current size of the Stack called `size`.
     * Write 1-2 test cases for your Stack that ensures the size is correctly tracked as elements are pushed, popped, and inspected with top. Add the test cases to `test.c` as you did for `print`. This time use C assertions as done in the `test.c` file to make sure the size is correct as you are modifying the Stack.
 
-**Note**: This exercise is inspired by *Barbara Johnson's lab exercise on Linked List based Stacks*.
+**Note**: This exercise is inspired by *Dr. Barbara Johnson's lab exercise on Linked List based Stacks*.
 
 ***
 
