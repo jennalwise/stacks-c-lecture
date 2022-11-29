@@ -249,21 +249,30 @@ This is important to do so that we do not exhaust heap memory!
 
 Recall, a **Stack** is an abstract data type (ADT) that holds a collection of data (integers, booleans, string, etc.) and preserves a First-In-Last-Out insertion and deletion strategy.
 
-The Stack ADT interface looks like:
+The `push` operation performs insertion by only adding a new element to the top of the stack (as long as the stack is not full). For example, 9 is added to the top of the integer stack below:
 
-```
+<img src="images/stacks-push.png" alt="remove push" width="250"/>
+<img src="images/stacks-push2.png" alt="remove push2" width="250"/>
 
-```
+The `pop` operation performs deletion by only removing the element at the top of the stack (as long as the stack is not empty). For example, 3 is removed from the integer stack below as 3 is the integer at the top of the stack:
 
-Recall that tracking the `top` of the stack is very important for `pop` and `push`.
+<img src="images/stacks-pop.png" alt="remove pop" width="250"/>
+<img src="images/stacks-pop2.png" alt="remove pop2" width="250"/>
 
-Conceptually, we are always pushing elements onto the stack at the top and popping elements off of the top of the stack. Further, our top function returns the top element of the stack.
+We can also get the data at the top of the stack using the `top` operation, which returns the data at the top of the stack (as long as the stack is not empty). For example, the integer 3 is returned from `top` in the integer stack below and the stack unmodified:  
 
-[visuals]
+<img src="images/stacks-top.png" alt="remove top" width="250"/>
+<img src="images/stacks-top2.png" alt="remove top2" width="250"/>
+
+## Linked List Based Stack ADT
+
+As you can see, tracking the `top` of the stack is very important for `pop`, `push`, and `top`.
 
 That's why we spent a lot of effort tracking `topPosition` correctly when implementing a Stack ADT based on an array.
 
-So, it is not surprising that our Stack ADT also tracks the `top` of the stack, which for linked lists will be the `top` node in the list:
+<img src="images/array-stack.png" alt="array stack" width="350"/>
+
+So, it is not surprising that our Stack ADT also tracks the `top` of the stack, which for linked lists will be a node from our list:
 
 ```C
 typedef struct Stack {
@@ -271,29 +280,100 @@ typedef struct Stack {
     Node* top; // tracks the top node of the stack
 } Stack;
 ```
-
-Our Stack ADT also tracks its `size` for convenience.
+That is, our Stack ADT tracks the top node of the stack with a node pointer and also tracks the stack's `size` with an integer for convenience.
 
 *Question*: Where should our `top` node point to in a linked list? Head or tail of the linked list?
 
+<img src="images/stacks-listhead.png" alt="list head" width="300"/>
+
+<img src="images/stacks-listtail.png" alt="list tail" width="300"/>
+
 *Answer*: It doesn't matter as long as we respect the conceptual ideas of a stack and its functionality, especially in terms of pushing and popping!
 
-For efficiency and convenience, let's make our `top` node always be the front/head of the list.
+<img src="images/stacks-listtophead.png" alt="list top head" width="300"/>
+
+<img src="images/stacks-listtoptail.png" alt="list top tail" width="300"/>
+
+For efficiency and convenience, let's make our `top` node always point to the head of the list.
+
+Now, we can implement our linked list based stack from our stack interface. Let's first review the interface, and then go over psuedo code for implementing the interface based on a linked list.
+
+## Stack Interface
+
+The interface for a Stack ADT for integers looks like:
+
+```C
+typedef struct Stack {
+    int size;
+    Node* top;
+} Stack;      /* Type for a stack of integers */
+
+
+bool initialize (Stack* s);
+
+bool isEmpty (const Stack* s);
+
+bool isFull (const Stack* s);
+
+int pop (Stack* s);
+
+bool push (Stack* s, int item);
+
+int top (const Stack* s);
+```
+
+## Initializing the Stack
+Initialize takes a stack `s` and initializes it, creating an empty stack. It returns true or false depending on if initialization succeeded or failed.
+
+```C
+bool initialize(Stack* s) {
+    if (Stack is not malloced (s is null) or Stack is non-empty) {
+        // do nothing & fail initialization
+    } else {
+        // initialize stack as an empty stack
+    }
+}
+```
+
+## Checking if the Stack is Empty
+`isEmpty` returns true or false depending on whether the Stack contains any items or not.
+
+```C
+bool isEmpty(const Stack* s) {
+    if (Stack is empty) {
+        // return true
+    } else {
+        // return false
+    }
+}
+```
+
+## Checking if the Stack is Full
+
+`isFull` returns true or false depending on whether the Stack contains as much data as it can hold. Since our stack is based on a linked list, which is dynamically allocated, `isFull` should always return `false` as our stack will only be "full" when the heap runs out of space.
+
+```C
+bool isFull(const Stack* s) {
+    // return false
+}
+```
 
 ## Pushing onto the Stack
+If the stack is not full, `push` adds the specified item to the top of the stack. If the stack is full, nothing is added, and an error is reported.
 
 ```C
 bool push(Stack* s, int item) {
-    if (stack is full) {
+    if (Stack is full) {
         // stack overflow error!
     } else {
-        // add node to the top/front of the list
+        // add node to the top/head of the list
         // increase stack size
     }
 }
 ```
 
 ## Popping off the Stack
+If the stack is not empty, pop removes the top item from the stack and returns it. If the stack is empty, nothing is returned, and an error is reported.
 
 ```C
 int pop(Stack* s) {
@@ -309,6 +389,7 @@ int pop(Stack* s) {
 ```
 
 ## Peeking at the Top Element of the Stack
+If the stack is not empty, the `top` item is returned, but the contents of the stack are not changed. If the stack is empty, nothing is returned, and an error is reported.
 
 ```C
 int top(Stack* s) {
