@@ -7,9 +7,9 @@ Between the interactive lecture and exercises, I cover the following learning go
 * Be able to use a Stack to solve a programming problem in C
 * Be able to implement a Stack using a Linked List in C
 
-## Interactive Lecture: Slides & Recording
+## Interactive Lecture Notes
 
-You can find both the slides with notes and a recording of me presenting the slides, here: [TBD] . 
+You can find the notes that I will go over during class here: [Linked List Base Stacks Discussion Notes](DiscussionNotes.md)
 
 ## Exercises for Practice
 
