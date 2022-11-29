@@ -160,7 +160,7 @@ For simplicity let's focus on writing a function to find, remove, and delete the
 
 ```C
 Node* removeFirstNode(Node* root) {
-    if (root == null)
+    if (root == NULL)
         return root;
     // locate node to be deleted
         // TODO
@@ -206,7 +206,7 @@ The code for this is below:
 
 ```C
 Node* removeFirstNode(Node* root) {
-    if (root == null)
+    if (root == NULL)
         return root;
     // locate node to be deleted
     Node* tmp = root;
@@ -231,7 +231,7 @@ Finally, we need to de-allocate memory from (delete) the node we just removed wh
 In code:
 ```C
 Node* removeFirstNode(Node* root) {
-    if (root == null)
+    if (root == NULL)
         return root;
     // locate node to be deleted
     Node* tmp = root;
