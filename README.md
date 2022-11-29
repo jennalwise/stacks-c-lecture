@@ -5,9 +5,7 @@ Between the interactive lecture and exercises, I cover the following learning go
 * Understand the conceptual idea of Stacks
 * Be able to recognize when to use a Stack to solve a programming problem
 * Be able to use a Stack to solve a programming problem in C
-* Be able to implement a Stack using an Array in C
 * Be able to implement a Stack using a Linked List in C
-* Be able to defend the decision to use an Array or a Linked List to implement a Stack
 
 ## Interactive Lecture: Slides & Recording
 
