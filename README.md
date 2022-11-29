@@ -9,7 +9,7 @@ Between the interactive lecture and exercises, I cover the following learning go
 
 ## Interactive Lecture Notes
 
-You can find the notes that I will go over during class here: [Linked List Base Stacks Discussion Notes](DiscussionNotes.md)
+You can find the notes that I will go over during class here: [Linked List Bases Stacks Discussion Notes](DiscussionNotes.md)
 
 ## Exercises for Practice
 
